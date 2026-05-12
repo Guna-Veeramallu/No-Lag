@@ -1,3 +1,7 @@
 export default function LoginPage() {
-  return null;
+  return(
+     <>
+       Home page
+     </>
+  );
 }
