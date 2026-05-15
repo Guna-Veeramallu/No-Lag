@@ -1,3 +1,5 @@
 export default function InitializingPage() {
-  return null;
+  return(
+    <>Home page</>
+  );
 }
