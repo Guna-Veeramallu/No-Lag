@@ -6,6 +6,7 @@ import MainLayout from '@/layouts/MainLayout';
 
 import InitializingPage from '@/features/auth/pages/InitializingPage';
 import LoginPage from '@/features/auth/pages/LoginPage';
+// import DashboardMain from '@/features/auth/dashboardpages/DashboardMain';
 
 import HomePage from '@/features/home/pages/HomePage';
 
@@ -45,6 +46,7 @@ import HelpPage from '@/features/settings/pages/HelpPage';
 import SoundSettingsPage from '@/features/settings/pages/SoundSettingsPage';
 
 import NotFoundPage from '@/pages/NotFoundPage';
+import DashboardMain from '@/features/dashboardpages/DashboardMain';
 
 export default function AppRoutes() {
   return (
@@ -55,6 +57,7 @@ export default function AppRoutes() {
       <Route element={<AuthLayout />}>
         <Route path={ROUTES.initializing} element={<InitializingPage />} />
         <Route path={ROUTES.login} element={<LoginPage />} />
+        <Route path={ROUTES.login} element={<DashboardMain />} />
       </Route>
 
       {/* Main layout (shell) */}
