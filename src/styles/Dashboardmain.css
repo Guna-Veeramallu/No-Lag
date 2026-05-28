@@ -1,0 +1,21 @@
+  body{
+     background-image: url('../styles/Dashboardbg.jpg');
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+}  
+.DashboardSection{
+    display: flex;
+    /* align-items: center; */
+    width: 100%;
+    padding: 20px 25px;
+    margin: auto;
+    color: #fff;
+    gap: 30px;
+}
+.DashboardLeft{
+    width: 18%;
+}
+.DashboardRight{
+    width: 82%;
+}

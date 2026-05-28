@@ -1,18 +1,18 @@
 import React from "react";
+import "../../styles/DashboardMain.css";
 import DashboardLeftNav from "./DashboardLeftNav";
 import DashboardRight from "./DashboardRight";
-// import "../../../styles/homepage.css";
 
 export default function DashboardMain() {
 
   return (
    <>
-    <div>
-        <div>
-            <DashboardLeftNav />
+    <div className="DashboardSection">
+        <div className="DashboardLeft">
+           <DashboardLeftNav />
         </div>
-        <div>
-            <DashboardRight />
+        <div className="DashboardRight">
+         <DashboardRight />
         </div>
     </div>
    </>

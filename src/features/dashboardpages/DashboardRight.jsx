@@ -1,9 +1,27 @@
 import React from "react";
-// import "../../../styles/homepage.css";
+import DashboardRghtTopNavBar from "./DashboardRghtTopNavBar";
+// import GuestPage from "./GuestPage";
+// import ShopsPage from "./ShopsPage";
+import DasboardPage from "./DashboardPage";
+// import OrderPage from "./OrderPage";
+// import CouponsPage from "./CouponsPage";
+// import CampaignsPage from "./CampaignsPage";
 
 export default function DashboardRight() {
 
   return (
-   <>Right Content</>
+   <div>
+    <div>
+        <DashboardRghtTopNavBar />
+    </div>
+    <div>
+        <DasboardPage />
+        {/* <GuestPage /> */}
+        {/* <ShopsPage /> */}
+        {/* <OrderPage /> */}
+        {/* <CouponsPage /> */}
+        {/* <CampaignsPage /> */}
+    </div>
+   </div>
   );
 }

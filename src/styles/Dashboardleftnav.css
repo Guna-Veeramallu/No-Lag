@@ -1,0 +1,255 @@
+/* =====================================================================
+   NOLAG — Glass Sidebar
+   Pure CSS · separate stylesheet for Sidebar.jsx
+   ===================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap");
+
+:root {
+  /* Accent — the orange→red bolt */
+  --nl-accent-1: #ff8a1e;
+  --nl-accent-2: #ff2e2e;
+
+  /* Text */
+  --nl-text:        #f4f5f7;
+  --nl-text-muted:  #aeb4c0;
+  --nl-text-dim:    #8c93a1;
+
+  /* Glass surfaces */
+  --nl-glass:        rgba(255, 255, 255, 0.05);
+  --nl-glass-hover:  #262626;
+  --nl-glass-active: #262626;
+  --nl-stroke:       rgba(255, 255, 255, 0.08);
+  --nl-stroke-soft:  rgba(255, 255, 255, 0.06);
+
+  --nl-radius:     26px;
+  --nl-radius-itm: 12px;
+}
+
+/* ---------------------------------------------------------------------
+   Shell
+--------------------------------------------------------------------- */
+.nl-sidebar {
+  box-sizing: border-box;
+  /* width: 290px;
+  min-height: 760px; */
+  /* padding: 26px var(--pad) 28px; */
+  padding: 10px 0 10px 16px;
+  border-radius: 30px;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  /* font-family: "Sora", ui-sans-serif, system-ui, sans-serif; */
+  color: var(--nl-text-muted);
+
+  /* Layered gradient: teal-slate (top) → indigo-navy (bottom) */
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.07) 45%, rgba(255, 255, 255, 0.04) 100%);
+
+  /* background:
+    radial-gradient(120% 80% at 0% 0%, rgba(54, 92, 99, 0.55) 0%, transparent 55%),
+    radial-gradient(120% 90% at 100% 100%, rgba(58, 44, 96, 0.55) 0%, transparent 55%),
+    linear-gradient(165deg, #1d2c30 0%, #1a2230 42%, #191726 78%, #161425 100%); */
+
+ border: 1px solid #FFFFFF2E;
+  /* box-shadow:
+    0 30px 60px -20px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05); */
+    /* backdrop-filter: blur(28px); */
+
+box-shadow: 0px 20px 48px -12px #00000080;
+
+box-shadow: 0px 1px 0.5px 0px #FFFFFF73 inset;
+}
+
+
+/* glass frost overlay */
+.nl-sidebar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  background: rgba(255, 255, 255, 0.012);
+  z-index: -1;
+}
+
+/* faint grain / sheen at the top edge */
+.nl-sidebar::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 160px;
+  border-radius: var(--nl-radius) var(--nl-radius) 0 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ---------------------------------------------------------------------
+   Brand
+--------------------------------------------------------------------- */
+.nl-brand {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  padding: 4px 6px 6px;
+  /* margin-bottom: 26px; */
+  content: url('../styles/NoLag.svg');
+}
+
+.nl-brand__text {
+  font-weight: 800;
+  font-size: 30px;
+  letter-spacing: -0.5px;
+  color: var(--nl-text);
+  line-height: 1;
+}
+
+.nl-bolt {
+  width: 22px;
+  height: 32px;
+  margin: 0 -2px;
+  filter: drop-shadow(0 2px 8px rgba(255, 80, 30, 0.45));
+}
+.nl-bolt path {
+  fill: url(#nl-bolt-grad);
+  /* fallback if gradient def absent */
+  fill: var(--nl-accent-1);
+}
+
+/* gradient fill via CSS (works without an <svg> <defs>) */
+.nl-bolt {
+  background: linear-gradient(180deg, var(--nl-accent-1), var(--nl-accent-2));
+  -webkit-mask: var(--bolt-mask) center / contain no-repeat;
+          mask: var(--bolt-mask) center / contain no-repeat;
+  --bolt-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 36'%3E%3Cpath d='M14 0 2 20h7L7 36 22 13h-8L14 0Z'/%3E%3C/svg%3E");
+}
+.nl-bolt path { display: none; }
+
+/* ---------------------------------------------------------------------
+   Groups & section labels
+--------------------------------------------------------------------- */
+.nl-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.nl-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-bottom: 1px solid #363535;
+}
+
+.nl-group__label {
+  align-self: flex-start;
+  margin: 2px 6px 8px;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: #E9E9E9;
+
+  border-radius: 8px;
+  background: #363535;
+  border: 1px solid var(--nl-stroke-soft);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(6px);
+}
+
+.nl-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* ---------------------------------------------------------------------
+   Items
+--------------------------------------------------------------------- */
+.nl-item {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 11px 14px;
+  border: 1px solid transparent;
+  border-radius: 6px 0px 0px 6px;
+  background: transparent;
+  color: #FFFFFF;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease,
+              border-color 0.18s ease, transform 0.12s ease;
+}
+
+.nl-item__icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: #FFFFFF;
+  transition: color 0.18s ease, transform 0.18s ease;
+}
+
+.nl-item__label { line-height: 1; }
+
+/* left accent bar (hidden until active) */
+.nl-item__accent {
+  position: absolute;
+  left: -1px;
+  top: 50%;
+  transform: translateY(-50%) scaleY(0.3);
+  width: 4px;
+  height: 93%;
+  border-radius: 4px 0px 0px 4px;
+  /* background: linear-gradient(180deg, var(--nl-accent-1), var(--nl-accent-2)); */
+  background: linear-gradient(22.93deg, #FE7B00 27.28%, #F7302F 66.92%);
+  opacity: 0;
+  transition: opacity 0.18s ease, transform 0.22s cubic-bezier(0.34, 1.4, 0.5, 1);
+}
+
+/* hover */
+.nl-item:hover {
+  background: var(--nl-glass-hover);
+  border-color: var(--nl-stroke);
+  color: var(--nl-text);
+}
+.nl-item:hover .nl-item__icon {
+  color: var(--nl-text);
+  transform: translateX(1px);
+}
+
+.nl-item:focus-visible {
+  outline: 2px solid rgba(255, 138, 30, 0.6);
+  outline-offset: 2px;
+}
+
+/* active */
+.nl-item.is-active {
+  background: var(--nl-glass-active);
+  border-color: var(--nl-stroke);
+  color: #F0F0F5;
+  font-weight: 700;
+  /* box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 6px 18px -10px rgba(255, 80, 30, 0.5); */
+}
+.nl-item.is-active .nl-item__icon {
+  color: #FE7B00  ;
+}
+.nl-item.is-active .nl-item__accent {
+  opacity: 1;
+  transform: translateY(-50%) scaleY(1);
+}
+
+.nl-item:active { transform: scale(0.99); }
