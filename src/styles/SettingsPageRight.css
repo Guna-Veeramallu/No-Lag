@@ -1,0 +1,329 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.financial-page {
+  --accent: #f4621f;
+  --accent-grad: linear-gradient(180deg, #ff7a3c 0%, #f4500f 100%);
+  --text: #ffffff;
+  --muted: #9aa1ac;
+  --card-border: rgba(255, 255, 255, 0.07);
+  --input-bg: rgba(12, 14, 24, 0.55);
+  --input-border: rgba(255, 255, 255, 0.10);
+  --radius: 16px;
+
+  /* min-height: 100vh; */
+  width: 100%;
+  padding: 32px 2px 27px 16px;
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.financial-page__title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  margin-bottom: 22px;
+}
+
+/* ---------- Layout ---------- */
+.financial-grid {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+}
+
+.financial-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+  min-width: 0;
+}
+
+/* ---------- Cards ---------- */
+.card {
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 22px 24px 26px;
+  position: relative;
+  overflow: hidden;
+}
+
+.card--violet {
+    box-shadow: 0px 1px 0.5px 0px #FFFFFF73 inset;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.07) 45%, rgba(255, 255, 255, 0.04) 100%);
+}
+
+.card--slate {
+  box-shadow: 0px 1px 0.5px 0px #FFFFFF73 inset;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.07) 45%, rgba(255, 255, 255, 0.04) 100%);
+}
+
+.card__title {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+/* ---------- Form fields ---------- */
+.field {
+  margin-bottom: 18px;
+}
+.field:last-child {
+  margin-bottom: 0;
+}
+
+.field__label {
+  display: block;
+  color: #D1D5DB;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 9px;
+  color: var(--text);
+  font: inherit;
+  font-size: 14px;
+  padding: 11px 14px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: rgba(244, 98, 31, 0.6);
+  box-shadow: 0 0 0 2px rgba(244, 98, 31, 0.15);
+}
+
+.textarea {
+  min-height: 86px;
+  resize: vertical;
+}
+
+.field-row {
+  display: flex;
+  gap: 18px;
+}
+.field-row .field {
+  flex: 1;
+}
+.field-row .field--narrow {
+  flex: 1.1;
+}
+
+/* ---------- Radio (web-admin payment methods) ---------- */
+.radio-row {
+  display: flex;
+  gap: 36px;
+  flex-wrap: wrap;
+}
+
+.radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.radio input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.radio__dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  flex-shrink: 0;
+  position: relative;
+  transition: border-color 0.15s ease;
+}
+
+.radio input:checked + .radio__dot {
+  border-color: var(--accent);
+}
+.radio input:checked + .radio__dot::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* ---------- Toggle (client payment methods) ---------- */
+.toggle-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.toggle-row__label {
+  font-size: 14px;
+   color: #D1D5DB;
+}
+
+.toggle {
+  --w: 68px;
+  --h: 26px;
+  width: var(--w);
+  height: var(--h);
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.07) 45%, rgba(255, 255, 255, 0.04) 100%);
+    border: 1px solid #FFFFFF2E;
+    backdrop-filter: blur(28px) ;
+    box-shadow: 0px 20px 48px -12px #00000080;
+    box-shadow: 0px 1px 0.5px 0px #FFFFFF73 inset;
+  transition: background 0.2s ease;
+}
+
+.toggle__knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background: #1b162d;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.toggle.is-on .toggle__knob {
+  transform: translateX(calc(var(--w) - 19px - 6px));
+  background: linear-gradient(22.93deg, #FE7B00 27.28%, #F7302F 66.92%);
+  left: 2px;
+}
+
+/* ---------- Tax Rates ---------- */
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  margin-bottom: 22px;
+  font-size: 14px;
+  color: #D1D5DB;
+}
+
+.checkbox input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.checkbox__box {
+  width: 22px;
+  height: 22px;
+  border-radius: 7px;
+  background: var(--accent-grad);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.checkbox__box svg {
+  width: 13px;
+  height: 13px;
+  opacity: 1;
+  transition: opacity 0.12s ease;
+}
+
+.checkbox input:not(:checked) + .checkbox__box {
+  background: transparent;
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.25);
+}
+.checkbox input:not(:checked) + .checkbox__box svg {
+  opacity: 0;
+}
+
+.tax-block {
+  margin-bottom: 18px;
+}
+
+.subheading {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 26px 0 14px;
+}
+
+/* ---------- Footer actions ---------- */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.btn {
+  border: none;
+  border-radius: 9px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 11px 20px;
+  cursor: pointer;
+  transition: transform 0.08s ease, filter 0.15s ease, background 0.15s ease;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn--ghost {
+  background: #070710;
+  color: #E9E9E9;
+  /* box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08); */
+  border: 1px solid #393939;
+  font-weight: 400;
+}
+.btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.btn--primary {
+  background: linear-gradient(22.93deg, #FE7B00 27.28%, #F7302F 66.92%);
+  color: #fff;
+  /* box-shadow: 0 4px 14px rgba(244, 98, 31, 0.35); */
+}
+.btn--primary:hover {
+  filter: brightness(1.05);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .financial-grid {
+    flex-direction: column;
+  }
+  .financial-page {
+    padding: 24px 18px;
+  }
+}

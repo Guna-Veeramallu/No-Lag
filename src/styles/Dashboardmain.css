@@ -13,6 +13,9 @@
     color: #fff;
     gap: 30px;
 }
+.SettingsSection{
+    padding: 0 !important;
+}
 .DashboardLeft{
     width: 18%;
 }
