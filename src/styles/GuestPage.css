@@ -200,12 +200,8 @@
 .table {
   border-radius: 16px;
   overflow: hidden;
-  /* border: 1px solid var(--border); */
   width: 100%;
-  /* background: linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.07) 45%, rgba(255, 255, 255, 0.04) 100%); */
-  /* backdrop-filter: blur(28px); */
   box-shadow: 0px 20px 48px -12px #00000080;
-  /* box-shadow: 0px 1px 0.5px 0px #FFFFFF73 inset; */
 }
 
 /* shared grid template for head + rows */
@@ -242,9 +238,7 @@
 .table__heads,
 .table__head {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.07) 45%, rgba(255, 255, 255, 0.04) 100%);
-  /* backdrop-filter: blur(28px); */
   box-shadow: 0px 20px 48px -12px #00000080;
-  /* box-shadow: 0px 1px 0.5px 0px #FFFFFF73 inset; */
   height: 56px;
   font-size: 15px;
   font-weight: 600;
@@ -255,17 +249,13 @@
   min-height: 76px;
   border-top: 1px solid var(--border);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.07) 45%, rgba(255, 255, 255, 0.04) 100%);
-  /* backdrop-filter: blur(28px); */
   box-shadow: 0px 20px 48px -12px #00000080;
-  /* box-shadow: 0px 1px 0.5px 0px #FFFFFF73 inset; */
   transition: background 0.15s ease;
 }
 
 .table__row:hover {
  background: linear-gradient(180deg, rgba(255, 255, 255, 0.14) 0%, rgba(255, 255, 255, 0.07) 45%, rgba(255, 255, 255, 0.04) 100%);
-  /* backdrop-filter: blur(28px); */
   box-shadow: 0px 20px 48px -12px #00000080;
-  /* box-shadow: 0px 1px 0.5px 0px #FFFFFF73 inset; */
 }
 .table__rows {
   min-height: 76px;

@@ -39,6 +39,9 @@ const Icon = {
   Stats: (p) => (
     <svg viewBox="0 0 24 24" {...p}><path d="M4 21V3" /><path d="M8 21v-8M13 21V9M18 21v-5" /></svg>
   ),
+   Setting: (p) => (
+    <svg viewBox="0 0 22 22" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...p}><path d="M4.8995 4.8995V8.41422L2.41422 10.8995L4.8995 13.3848V16.8995H8.41422L10.8995 19.3848L13.3848 16.8995H16.8995V13.3848L19.3848 10.8995L16.8995 8.41422V4.8995H13.3848L10.8995 2.41422L8.41422 4.8995H4.8995Z" /><circle cx="10.8995" cy="10.8995" r="3" /></svg>
+  ),
 };
 
 /* ----------------------------------------------------------------
@@ -75,7 +78,10 @@ const NAV = [
   },
   {
     section: "Insights",
-    items: [{ id: "statistics", label: "Statistics", icon: "Stats" }],
+    items: [
+      { id: "statistics", label: "Statistics", icon: "Stats" },
+      { id: "settings", label: "Settings", icon: "Setting" },
+    ],
   },
 ];
 
